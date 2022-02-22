@@ -5,10 +5,11 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### To start the server
 ```
 npm run serve
 ```
+Please be sure connect from localhost
 
 ### Compiles and minifies for production
 ```
