@@ -4,9 +4,9 @@ import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 
 const routes: Array<RouteRecordRaw> = [
-  { path: '/', component: Home },
-  { path: '/login', component: Login },
-  { path: '/register', component: Register }
+  { path: '/', component: Login },
+  { path: '/register', component: Register },
+  { path: '/home', component: Home }
 ]
 
 const router = createRouter({

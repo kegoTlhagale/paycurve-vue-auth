@@ -1,11 +1,20 @@
 <template>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
         <div class="container-fluid">
-        <router-link to='/' class="navbar-brand">Home</router-link>
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <div class="align-items-center">
+           <img alt="Vue logo" src="../assets/weather.png" width="30">
+          </div>
+        </li>
+        <li class="nav-item">
+          Weather.API
+        </li>
+        </ul>
         <div>
             <ul class="navbar-nav me-auto mb-2 mb-md-0" v-if="!auth">
             <li class="nav-item">
-                <router-link to="/login" class="nav-link">Login</router-link>
+                <router-link to="/" class="nav-link">Login</router-link>
             </li>
             <li class="nav-item">
                 <router-link to="/register" class="nav-link">Register</router-link>
@@ -13,7 +22,7 @@
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-md-0" v-if="auth">
             <li class="nav-item">
-                <router-link to="/login" class="nav-link" @click="logout">Log out</router-link>
+                <router-link to="/" class="nav-link" @click="logout">Log out</router-link>
             </li>
             </ul>
         </div>
@@ -46,7 +55,7 @@ export default {
 
       if (response.status === 200) {
         await store.dispatch('setAuth', false)
-        await router.push('/login')
+        await router.push('/')
       } else {
         alert('Something went wrong. Please try again')
       }

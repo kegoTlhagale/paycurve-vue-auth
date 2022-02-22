@@ -1,32 +1,47 @@
 <template>
   <Nav />
   <main class="form-signin">
-    <router-view/>
+    <div class="text-center space" v-if="!auth">
+      <h1>☀🌈☔🌤⛈</h1>
+      <h2>Please Sign-in to check the weather in your city</h2>
+    </div>
+    <div>
+      <router-view/>
+    </div>
   </main>
 </template>
 
 <script>
 import Nav from '@/components/Nav'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 
 export default {
-  components: { Nav }
+  components: { Nav },
+  setup () {
+    const store = useStore()
+    const auth = computed(() => store.state.authenticated)
+
+    return {
+      auth
+    }
+  }
 }
 </script>
 
 <style>
 .form-signin {
   width: 100%;
-  max-width: 330px;
-  padding: 15px;
   margin: auto;
+}
+
+/*
+.form-signin .form-floating:focus-within {
+  z-index: 2;
 }
 
 .form-signin .checkbox {
   font-weight: 400;
-}
-
-.form-signin .form-floating:focus-within {
-  z-index: 2;
 }
 
 .form-signin input[type="email"] {
@@ -39,5 +54,5 @@ export default {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}
+} */
 </style>
